@@ -1,3 +1,5 @@
+// Geeks for Geeks was used for inspiration and help
+
 function divideAndConquerSum(a) {
     return divideAndSum(x, 0, x.length);
 }
