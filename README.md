@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/E1vcEWuv)
 # Divide and Conquer Sum
 
 In the lectures, we've covered merge sort, which uses a divide-and-conquer
@@ -25,3 +26,5 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+My answer: The if statement comparisons, which check for array sizes 0 and 1, and what they return are constant time because they have a constant number of steps. Then the overall summation that is returned with each function call I believe is also constant because adding the values returned involves a constant number of steps. The splitting of the array into 3 subarrays takes constant time, but the recursive call on each subarray takes 3T(n/3) time because there are 3 calls made each time and the input size is divided into thirds. Since constants aren't important asymptotically, the steps that took constant time can be dropped for the remainder of the calculations. So, T(n) = 1 for n <= 1 and T(n) = 3T(n/3) for n > 1. Now, to solve for T(n/3), we substitute n/3 into each n, so T(n/3) = 3T(n/9), so T(n) = 3(3T(n/9)) which equals 9T(n/9). This continues for each iteration until the base case is achieved. The pattern is 3^i * T(n/3^i) and to get the base case i needs to be equal to log base 3 of n to achieve T(n). Then we have 3^log base 3 of n * T(n/3^log base 3 of n) which equals n * T(1) resulting in n. So the runtime of my algorithm is $\Theta(n)$.
